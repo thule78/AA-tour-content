@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Hello Contents</h1>
+  <% @contents.each do |content| %>
+  <%= link_to content_path(content), class:"", :action => 'go' do %>
+  <div>
+    <h3><%= content.title %></h3>
+    <p><%= content.root %></p>
+  </div>
+  <%end%>
+  <% end %>
+</div>

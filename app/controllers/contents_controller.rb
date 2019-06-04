@@ -1,4 +1,5 @@
 class ContentsController < ApplicationController
+    skip_before_action :authenticate_user!, only: [:index, :show, :new, :create, :edit, :destroy]
   def index
     @contents = Content.all
   end
@@ -32,8 +33,13 @@ class ContentsController < ApplicationController
   private
 
     def content_params
-      params.require(:content).permit(:title, :source, :status, :root, :photo, :content_original, :content_modifi)
+      params.require(:content).permit(:title,
+        :source, :status, :root, :photo,
+        :content_original, :content_modifi,
+        :country, :destination, :activity, :length, :note,
+        :code, :provider, :start_finish, :style, :them,
+        :comfort, :similar_trip
+        )
 
     end
-  end
 end
