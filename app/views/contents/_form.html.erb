@@ -18,7 +18,7 @@
         <%= f.input :content_modifi, label: 'Modifi content', :as => :text, :input_html => {:rows => 5}, class: "form-control" %>
       </div>
 <div class="form-group">
-  <%= f.input :status, label:'status', as: :select, prompt: 'Editting',:collection => ["Approved" ,"Publish","Hidden"], class: 'form-control'%>
+  <%= f.input :status, label:'status', as: :select, :collection => ["Editting", "Approved" ,"Publish","Hidden"], class: 'form-control'%>
 </div>
 <div class="form-group">
   <%= f.input :source, label:'source', :placeholder => 'John 2008', class: 'form-control'%>
@@ -31,7 +31,7 @@
   <%= f.input :destination, label:'location', :placeholder => 'Chiangmai, Sapa, Luang Pra Phang', class: 'form-control'%>
 </div>
 <div class="form-group">
-  <%= f.input :activity, label:'activity', as: :select, prompt: 'Biking',:collection => ["Hiking" ,"Rafting","Unesco other", "Summary", "Visa", "Weather", "Festival", "Q&A"], class: 'form-control'%>
+  <%= f.input :activity, label:'activity', as: :select,:collection => ["Biking","Hiking" ,"Rafting","Unesco other", "Other Water","Outdoor","Summary", "Visa", "Weather", "Festival", "Q&A"], class: 'form-control'%>
 </div>
 <div class="form-group">
   <%= f.input :length, label:'duration', :placeholder => '4 days | 3 night', class: 'form-control'%>

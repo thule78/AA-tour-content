@@ -1,5 +1,5 @@
 class ContentsController < ApplicationController
-    skip_before_action :authenticate_user!, only: [:index, :show, :new, :create, :edit, :destroy]
+    skip_before_action :authenticate_user!, only: [:index, :show, :new, :create, :edit, :destroy, :update]
   def index
     @contents = Content.all
   end
@@ -14,7 +14,11 @@ class ContentsController < ApplicationController
 
   def create
     @content = Content.new(content_params)
-    @content.save
+      if @content.save
+        redirect_to contents_path
+      else
+        render :new
+      end
   end
 
   def edit
@@ -24,6 +28,7 @@ class ContentsController < ApplicationController
   def update
     @content = Content.find(params[:id])
     @content.update(content_params)
+      redirect_to content_path(@content)
   end
 
   def destroy
