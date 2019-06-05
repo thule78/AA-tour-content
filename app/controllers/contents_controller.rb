@@ -1,7 +1,11 @@
 class ContentsController < ApplicationController
     skip_before_action :authenticate_user!, only: [:index, :show, :new, :create, :edit, :destroy, :update]
   def index
-    @contents = Content.all
+    if params[:query].present?
+      @contents = Content.search_for_content(params[:query])
+    else
+      @contents = Content.all
+    end
   end
 
   def show
