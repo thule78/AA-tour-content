@@ -1,28 +1,46 @@
 <div class="container my-5">
   <div class="wrapper">
     <div class="content-col col-md-8 col-12">
-      <h3><%= @content.title %></h3>
-      <p><strong>Root:</strong><%= @content.country %>/<%= @content.destination %>/<%= @content.activity %></p>
+      <h3 class="content-title"><%= @content.title %></h3>
+      <p><strong>Root: </strong><%= @content.country %>/<%= @content.destination %>/<%= @content.activity %></p>
       <p><strong>Source: </strong><%= @content.source %></p>
-      <p><span>Original Content: </span><br /><%= @content.content_original %></p>
-      <p><span>Modifi Content: </span><br /><%= @content.content_modifi %></p>
-    </div>
-    <div class="info-col col-md-4 col-12">
-      <div class="d-flex justify-content-around py-2 border-top">
-      <%= link_to raw("<span class=''></span> Delete"), @content_path, :class=>"btn btn-default", method: "delete", data: { confirm: "Are you sure you want to cancel your request for '#{@content.title}'?" } %>
-      <%= link_to 'Edit', edit_content_path%>
+      <div class="content-tabs">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="original-tab" data-toggle="tab" href="#original" role="tab" aria-controls="original" aria-selected="true">Original Content</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="modifi-tab" data-toggle="tab" href="#modifi" role="tab" aria-controls="profile" aria-selected="false">Modifi Content</a>
+          </li>
+        </ul>
+        <div class="tab-content mt-4" id="myTabContent">
+          <div class="tab-pane fade show active" id="original" role="tabpanel" aria-labelledby="original-tab"><p><%= @content.content_original %></p></div>
+          <div class="tab-pane fade" id="modifi" role="tabpanel" aria-labelledby="profile-tab"><p><%= @content.content_modifi %></p></div>
+        </div>
       </div>
-      <p><span>Code: </span><%= @content.code %></p>
-      <strong>Status: </strong><%= @content.status %>
-      <p><span>Last updated: </span><%= @content.updated_at %></p>
-      <p><span>Note: </span><%= @content.note %></p>
-      <p><span>Provider: </span><%= @content.provider %></p>
-      <p><span>Start/Finish destination: </span><%= @content.start_finish %></p>
-      <p><span>Style: </span><%= @content.style %></p>
-      <p><span>Theme: </span><%= @content.theme %></p>
-      <p><span>Comfort: </span><%= @content.comfort %></p>
-      <p><span>Similar Trips: </span><%= @content.similar_trip %></p>
-      <p><span>Duration: </span><%= @content.length %></p>
+
+    </div>
+    <div class="info-col col-md-4 col-12 ml-2">
+      <p class="content-status col-12"><%= @content.status %></p>
+      <div class="d-flex justify-content-around py-2">
+      <%= link_to 'Delete', @content_path, class: "btn btn-outline-danger col-4", method: "delete", data: { confirm: "Are you sure you want to delete '#{@content.title}'?" } %>
+      <%= link_to 'Edit', edit_content_path, class: "btn btn-outline-warning col-4" %>
+      </div>
+      <div class="flash flash-warning alert alert-dismissible fade  show" role="alert">
+      <span>Note: <%= @content.note %></span>
+      </div>
+      <div class="mt-5">
+        <p><strong>Last updated: <%= @content.updated_at %></strong></p>
+        <p><span>Code: </span><%= @content.code %></p>
+        <p><span>Provider: </span><%= @content.provider %></p>
+        <p><span>Start/Finish destination: </span><%= @content.start_finish %></p>
+        <p><span>Style: </span><%= @content.style %></p>
+        <p><span>Theme: </span><%= @content.theme %></p>
+        <p><span>Comfort: </span><%= @content.comfort %></p>
+        <p><span>Similar Trips: </span><%= @content.similar_trip %></p>
+        <p><span>Duration: </span><%= @content.length %></p>
+      </div>
+
     </div>
   </div>
 </div>

@@ -4,10 +4,34 @@
 }
 
 .content-col {
+  padding: 20px;
   flex: 1 1 auto;
+
+  .nav-link {
+    color: #ffb934;
+    font-weight: bold;
+  }
 }
 
 .info-col {
+  padding: 20px;
   margin-top: 30px;
   flex: 1 1 auto;
+  background-color: white;
+  .content-status {
+    padding: 10px 0;
+    color: #fff;
+    background-color: #167FFB;
+    text-align: center;
+    vertical-align: middle;border-color: #167FFB;
+    display: inline-block;
+    font-weight: 400;
+    border-radius: 2px;
+  }
 }
+
+.content-title {
+  font-weight: bold;
+  color: #167FFB;
+}
+
