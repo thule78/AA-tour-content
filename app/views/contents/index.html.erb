@@ -1,14 +1,21 @@
 <div class="container">
   <h1>Hello Contents</h1>
-  <% @contents.each do |content| %>
-  <%= link_to content_path(content), class:"", :action => 'go' do %>
-  <div>
-    <h3><%= content.title %></h3>
-    <p><%= content.status %></p>
-    <p><%= content.status %></p>
-    <p><%= content.created_at %></p>
-    <p><%= content.updated_at %></p>
+  <div class="row">
+    <% @contents.each do |content| %>
+    <%= link_to content_path(content), class:"content-card", :action => 'go' do %>
+  <div class="card m-3">
+    <div class="card-header">
+      Note: <%= content.note.first(70) %>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= content.title %></h5>
+      <p class="card-text"><strong>Root: </strong><%= content.country %>/<%= content.destination %>/<%= content.activity %></p>
+      <p class="card-text"><strong>Last Updated: </strong><%= content.updated_at %></p>
+      <p class="btn btn-outline-primary"><%= content.status %></p>
+    </div>
+
   </div>
   <%end%>
-  <% end %>
+    <% end %>
+  </div>
 </div>

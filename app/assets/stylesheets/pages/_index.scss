@@ -1,2 +1,25 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.content-card {
+  text-decoration: none;
+  color: black;
+  transition: transform .2;
+  :hover {
+    color: black;
+    text-decoration: none;
+    background-color: #FFE4B5;
+  }
+
+  :active {
+    background-color: #FFE4B5;
+  }
+  .card-title{
+    font-weight: bold;
+    color: #167FFB;
+  }
+}
+
+.content-card:hover{
+  color: black;
+}

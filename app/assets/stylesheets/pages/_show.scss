@@ -1,0 +1,13 @@
+.wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.content-col {
+  flex: 1 1 auto;
+}
+
+.info-col {
+  margin-top: 30px;
+  flex: 1 1 auto;
+}

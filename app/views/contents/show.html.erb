@@ -1,19 +1,24 @@
 <div class="container my-5">
-<strong>Root:</strong><%= @content.country %>/<%= @content.destination %>/<%= @content.activity %>
-<h3><%= @content.title %></h3>
-<p><span>Original Content: </span><br /><%= @content.content_original %></p>
-<p><span>Modifi Content: </span><br /><%= @content.content_modifi %></p>
-<strong><%= @content.status %></strong>
-<p><span>Created on: </span><%= @content.created_at %></p>
-<p><span>Last updated: </span><%= @content.updated_at %></p>
-<p><span>Source: </span><%= @content.source %></p>
-<p><span>Code: </span><%= @content.code %></p>
-<p><span>Provider: </span><%= @content.provider %></p>
-<p><span>Start/Finish destination: </span><%= @content.start_finish %></p>
-<p><span>Style: </span><%= @content.style %></p>
-<p><span>Theme: </span><%= @content.theme %></p>
-<p><span>Comfort: </span><%= @content.comfort %></p>
-<p><span>Similar Trips: </span><%= @content.similar_trip %></p>
-<p><span>Duration: </span><%= @content.length %></p>
-<p><span>Note: </span><%= @content.note %></p>
+  <div class="wrapper">
+    <div class="content-col col-md-8 col-12">
+      <h3><%= @content.title %></h3>
+      <p><strong>Root:</strong><%= @content.country %>/<%= @content.destination %>/<%= @content.activity %></p>
+      <p><strong>Source: </strong><%= @content.source %></p>
+      <p><span>Original Content: </span><br /><%= @content.content_original %></p>
+      <p><span>Modifi Content: </span><br /><%= @content.content_modifi %></p>
+    </div>
+    <div class="info-col col-md-4 col-12">
+      <p><span>Code: </span><%= @content.code %></p>
+      <strong>Status: </strong><%= @content.status %>
+      <p><span>Last updated: </span><%= @content.updated_at %></p>
+      <p><span>Note: </span><%= @content.note %></p>
+      <p><span>Provider: </span><%= @content.provider %></p>
+      <p><span>Start/Finish destination: </span><%= @content.start_finish %></p>
+      <p><span>Style: </span><%= @content.style %></p>
+      <p><span>Theme: </span><%= @content.theme %></p>
+      <p><span>Comfort: </span><%= @content.comfort %></p>
+      <p><span>Similar Trips: </span><%= @content.similar_trip %></p>
+      <p><span>Duration: </span><%= @content.length %></p>
+    </div>
+  </div>
 </div>
