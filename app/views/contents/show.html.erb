@@ -8,6 +8,10 @@
       <p><span>Modifi Content: </span><br /><%= @content.content_modifi %></p>
     </div>
     <div class="info-col col-md-4 col-12">
+      <div class="d-flex justify-content-around py-2 border-top">
+      <%= link_to raw("<span class=''></span> Delete"), @content_path, :class=>"btn btn-default", method: "delete", data: { confirm: "Are you sure you want to cancel your request for '#{@content.title}'?" } %>
+      <%= link_to 'Edit', edit_content_path%>
+      </div>
       <p><span>Code: </span><%= @content.code %></p>
       <strong>Status: </strong><%= @content.status %>
       <p><span>Last updated: </span><%= @content.updated_at %></p>

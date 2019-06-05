@@ -1,7 +1,17 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <% end %>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <%= link_to "#", class: "navbar-brand" do %>
+      <%= image_tag "logo-small.png", style: 'width: 70px; height: 35px' %>
+      <% end %>
+    </li>
+    <li class="nav-item m-2">
+      <%= link_to "All Contents", contents_path, class: "btn btn-outline-secondary" %>
+    </li>
+    <li class="nav-item m-2">
+      <%= link_to "Add New Content", new_content_path, class: "btn btn-outline-secondary" %>
+    </li>
+  </ul>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
