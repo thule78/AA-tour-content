@@ -1,66 +1,76 @@
 <%= simple_form_for @content do |f| %>
 <% if @content.errors.any? %>
-  <div class="errors-container">
-    <ul>
-      <% @content.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
+<div class="errors-container">
+  <ul>
+    <% @content.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
 <% end %>
+
 <div class="form-group">
   <%= f.input :title, label:'title',:placeholder => 'Name', class: 'form-control'%>
 </div>
-<div class="form-group">
-        <%= f.input :content_original, label: 'Original content', :as => :text, :input_html => {:rows => 5}, class: "form-control" %>
-      </div>
-<div class="form-group">
-        <%= f.input :content_modifi, label: 'Modifi content', :as => :text, :input_html => {:rows => 5}, class: "form-control" %>
-      </div>
-<div class="form-group">
-  <%= f.input :status, label:'status', as: :select, :collection => ["Editting", "Approved" ,"Publish","Hidden"], class: 'form-control'%>
+<div class="form-row">
+  <div class="form-group col-md-4">
+    <%= f.input :country, label:'country',as: :select, :collection => ["Bhutan","Cambodia", "Laos", "Nepal", "Myanmar", "Thailand", "Vietnam"], class: 'form-control'%>
+  </div>
+  <div class="form-group col-md-4">
+    <%= f.input :destination, label:'location', :placeholder => 'Chiangmai, Sapa, Luang Pra Phang', class: 'form-control'%>
+  </div>
+  <div class="form-group col-md-4">
+    <%= f.input :activity, label:'activity', as: :select,:collection => ["Biking","Hiking" ,"Rafting","Unesco other", "Other Water","Outdoor","Summary", "Visa", "Weather", "Festival", "Q&A"], class: 'form-control'%>
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-group col-md-6">
+    <%= f.input :source, label:'source', :placeholder => 'John 2008', class: 'form-control'%>
+  </div>
+  <div class="form-group col-md-6">
+    <%= f.input :status, label:'status', as: :select, :collection => ["Editting", "Approved" ,"Publish","Hidden"], class: 'form-control'%>
+  </div>
 </div>
 <div class="form-group">
-  <%= f.input :source, label:'source', :placeholder => 'John 2008', class: 'form-control'%>
+  <%= f.input :content_original, label: 'Original content', :as => :text, :input_html => {:rows => 5}, class: "form-control" %>
 </div>
 <div class="form-group">
-  <%= f.input :country, label:'country',as: :select, :collection => ["Bhutan","Cambodia", "Laos", "Nepal", "Myanmar", "Thailand", "Vietnam"], class: 'form-control'%>
+  <%= f.input :content_modifi, label: 'Modifi content', :as => :text, :input_html => {:rows => 5}, class: "form-control" %>
 </div>
-
-<div class="form-group">
-  <%= f.input :destination, label:'location', :placeholder => 'Chiangmai, Sapa, Luang Pra Phang', class: 'form-control'%>
+<div class="form-row">
+  <div class="form-group col-md-4">
+    <%= f.input :code, label:'code',class: 'form-control'%>
+  </div>
+  <div class="form-group col-md-4">
+    <%= f.input :provider, label:'Provider', class: 'form-control'%>
+  </div>
+  <div class="form-group col-md-4">
+    <%= f.input :length, label:'duration', :placeholder => '4 days | 3 night', class: 'form-control'%>
+  </div>
 </div>
-<div class="form-group">
-  <%= f.input :activity, label:'activity', as: :select,:collection => ["Biking","Hiking" ,"Rafting","Unesco other", "Other Water","Outdoor","Summary", "Visa", "Weather", "Festival", "Q&A"], class: 'form-control'%>
+<div class="form-row">
+  <div class="form-group col-md-4">
+    <%= f.input :style, label:'style',class: 'form-control'%>
+  </div>
+  <div class="form-group col-md-4">
+    <%= f.input :theme, label:'theme', class: 'form-control'%>
+  </div>
+  <div class="form-group col-md-4">
+    <%= f.input :comfort, label:'comfort', class: 'form-control'%>
+  </div>
 </div>
-<div class="form-group">
-  <%= f.input :length, label:'duration', :placeholder => '4 days | 3 night', class: 'form-control'%>
-</div>
-<div class="form-group">
-  <%= f.input :code, label:'code',class: 'form-control'%>
-</div>
-<div class="form-group">
-  <%= f.input :provider, label:'duration', class: 'form-control'%>
-</div>
-<div class="form-group">
-  <%= f.input :start_finish, label:'start/finish destination', :placeholder => 'Chiangmai-Hanoi', class: 'form-control'%>
-</div>
-<div class="form-group">
-  <%= f.input :style, label:'style',class: 'form-control'%>
-</div>
-<div class="form-group">
-  <%= f.input :theme, label:'theme', class: 'form-control'%>
-</div>
-<div class="form-group">
-  <%= f.input :comfort, label:'comfort', class: 'form-control'%>
-</div>
-<div class="form-group">
-  <%= f.input :similar_trip, label:'similar trip', class: 'form-control'%>
+<div class="form-row">
+  <div class="form-group col-md-4">
+    <%= f.input :start_finish, label:'start/finish destination', :placeholder => 'Chiangmai-Hanoi', class: 'form-control'%>
+  </div>
+  <div class="form-group col-md-8">
+    <%= f.input :similar_trip, label:'similar trip', class: 'form-control'%>
+  </div>
 </div>
 <div class="form-group">
   <%= f.input :note, label:'Internal note', :placeholder => 'note for writer, developer, admin', class: 'form-control'%>
 </div>
-<%= f.submit class: 'btn btn-info' %>
-<%= f.button :button, 'Cancel', type: :reset, class: 'btn btn-outline-info' %>
+<%= f.submit class: 'btn btn-info mb-5' %>
+<%= f.button :button, 'Cancel', type: :reset, class: 'btn btn-outline-info mb-5' %>
 
 <%end%>
