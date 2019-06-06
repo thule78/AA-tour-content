@@ -5,12 +5,6 @@
       <%= image_tag "logo-small.png", style: 'width: 70px; height: 35px' %>
       <% end %>
     </li>
-    <li class="nav-item m-2">
-      <%= link_to "All Contents", contents_path, class: "btn btn-outline-secondary" %>
-    </li>
-    <li class="nav-item m-2">
-      <%= link_to "Add New Content", new_content_path, class: "btn btn-outline-secondary" %>
-    </li>
   </ul>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,9 +15,26 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+      <li class="nav-item m-2">
+      <%= link_to "All Contents", contents_path, class: "btn btn-outline-secondary" %>
+    </li>
+    <li class="nav-item m-2">
+      <% if current_user.admin? %>
+      <%= link_to "Add New Content", new_content_path, class: "btn btn-outline-secondary" %>
+      <%end%>
+    </li>
+    <li class="nav-item active m-2">
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-outline-info" %>
         </li>
+      <li>
+          <%if current_user.admin?%>
+            <p class="m-3">Welcome Admin</p>
+          <%else%>
+            <p class="m-3"> Welcome Editor</p>
+          <%end%>
+        </li>
+
+
       <% else %>
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>

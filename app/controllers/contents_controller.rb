@@ -9,14 +9,17 @@ class ContentsController < ApplicationController
 
   def show
     @content = Content.find(params[:id])
+    authorize @content
   end
 
   def new
     @content = Content.new
+    authorize @content
   end
 
   def create
     @content = Content.new(content_params)
+    authorize @content
       if @content.save
         redirect_to contents_path
       else
@@ -26,18 +29,27 @@ class ContentsController < ApplicationController
 
   def edit
     @content = Content.find(params[:id])
+    authorize @content
   end
 
   def update
     @content = Content.find(params[:id])
+    authorize @content
     @content.update(content_params)
-      redirect_to content_path(@content)
+    redirect_to content_path(@content)
   end
 
   def destroy
     @content = Content.find(params[:id])
+    authorize @content
     @content.destroy
-    redirect_to contents_path
+    if @content.destroy
+      flash[:notice] = "\"#{@content.title}\" was successfully deleted."
+      redirect_to contents_path
+    else
+      flash.now[:alert] = "There was an error deleting the content."
+      render :show
+    end
   end
   private
 

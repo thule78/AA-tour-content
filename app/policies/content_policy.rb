@@ -9,7 +9,7 @@ class ContentPolicy < ApplicationPolicy
   end
 
   def create?
-    user.role == 'admin' || record.user == user
+    user.admin?
   end
 
   def edit?
@@ -20,6 +20,6 @@ class ContentPolicy < ApplicationPolicy
     true
   end
   def destroy?
-    user.role == 'admin' || record.user == user
+    user.admin?
   end
 end

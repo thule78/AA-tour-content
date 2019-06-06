@@ -19,11 +19,17 @@
         </div>
       </div>
 
+    <%= link_to "Delete", @wiki, method: :delete, class: 'btn btn-danger' %>
+
+
+
     </div>
     <div class="info-col col-md-4 col-12 ml-2">
       <p class="content-status col-12"><%= @content.status %></p>
       <div class="d-flex justify-content-around py-2">
+      <% if policy(@content).destroy? %>
       <%= link_to 'Delete', @content_path, class: "btn btn-outline-danger col-4", method: "delete", data: { confirm: "Are you sure you want to delete '#{@content.title}'?" } %>
+      <% end %>
       <%= link_to 'Edit', edit_content_path, class: "btn btn-outline-warning col-4" %>
       </div>
       <div class="flash flash-warning alert alert-dismissible fade  show" role="alert">
