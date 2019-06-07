@@ -18,10 +18,10 @@
     <%= link_to content_path(content), class:"content-card", :action => 'go' do %>
   <div class="card m-3">
     <div class="card-header">
-      Note: <%= content.note.first(50) %>
+      Note: <%= content.note.first(30) %>
     </div>
     <div class="card-body">
-      <h5 class="card-title"><%= content.title.first(50) %></h5>
+      <h5 class="card-title"><%= content.title.first(25) %></h5>
       <p class="card-text"><strong>Root: </strong><%= content.country %>/<%= content.destination %>/<%= content.activity %></p>
       <p class="card-text"><strong>Last Updated: </strong><%= content.updated_at %></p>
       <p class="btn btn-outline-primary"><%= content.status %></p>
