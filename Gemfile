@@ -18,6 +18,9 @@ gem 'webpacker'
 gem 'country_select', '~> 4.0'
 gem 'pg_search'
 gem 'pundit'
+#Trix WYSIWYG editor, make text bold, italic...
+gem 'trix'
+gem 'trix-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
