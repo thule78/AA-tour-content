@@ -1,9 +1,10 @@
 class ContentsController < ApplicationController
   def index
     if params[:query].present?
+      contents = policy_scope(Content).order(updated_at: :desc)
       @contents = Content.search_for_content(params[:query])
     else
-      @contents = Content.all
+      @contents = Content.all.order(updated_at: :desc)
     end
   end
 
