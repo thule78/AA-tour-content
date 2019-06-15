@@ -2,10 +2,9 @@ class ContentsController < ApplicationController
   def index
     if params[:query].present?
       contents = policy_scope(Content).order(updated_at: :desc)
-      @contents = Content.search_for_content(params[:query])
+      @contents = Content.search_for_content(params[:query]).paginate(page:params[:page], per_page: 20).order(updated_at: :desc)
     else
-      @contents = Content.all.order(updated_at: :desc)
-      @contents = Content.paginate(page:params[:page], per_page: 20)
+      @contents = Content.paginate(page:params[:page], per_page: 20).order(updated_at: :desc)
     end
   end
 
