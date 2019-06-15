@@ -13,6 +13,9 @@
     </div>
   <% end %>
   </div>
+  <div>
+    <%= will_paginate %>
+  </div>
   <div class="row">
     <% @contents.each do |content| %>
     <%= link_to content_path(content), class:"content-card", :action => 'go' do %>
@@ -30,5 +33,8 @@
   </div>
   <%end%>
     <% end %>
+  </div>
+  <div>
+    <%= will_paginate %>
   </div>
 </div>

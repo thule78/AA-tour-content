@@ -5,6 +5,7 @@ class ContentsController < ApplicationController
       @contents = Content.search_for_content(params[:query])
     else
       @contents = Content.all.order(updated_at: :desc)
+      @contents = Content.paginate(page:params[:page], per_page: 20)
     end
   end
 

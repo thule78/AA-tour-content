@@ -21,6 +21,10 @@ gem 'pundit'
 #Trix WYSIWYG editor, make text bold, italic...
 gem 'trix'
 gem 'trix-rails'
+#paginate
+gem 'will_paginate', '~> 3.1.0'
+gem 'bootstrap-will_paginate'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
