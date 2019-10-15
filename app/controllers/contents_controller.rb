@@ -55,12 +55,12 @@ class ContentsController < ApplicationController
   private
 
     def content_params
-      params.require(:content).permit(:title,
+      params.require(:content).permit(:title, :new_title,
         :source, :status, :root, :photo,
-        :content_original, :content_modifi,
-        :country, :destination, :activity, :length, :note,
+        :itinerary, :summary, :highlight, :go_next,
+        :country, :destination, :activity1, :activity2, :length, :note,
         :code, :provider, :start_finish, :style, :them,
-        :comfort, :similar_trip
+        :comfort, :related_trips
         )
 
     end
