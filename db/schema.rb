@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_06_090335) do
+ActiveRecord::Schema.define(version: 2019_10_15_061334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,11 +22,10 @@ ActiveRecord::Schema.define(version: 2019_06_06_090335) do
     t.string "source"
     t.string "status"
     t.string "comfort"
-    t.text "content_original"
-    t.text "content_modifi"
+    t.text "itinerary"
     t.string "country"
     t.string "destination"
-    t.string "activity"
+    t.string "activity1"
     t.string "length"
     t.text "note"
     t.string "code"
@@ -34,7 +33,12 @@ ActiveRecord::Schema.define(version: 2019_06_06_090335) do
     t.string "start_finish"
     t.string "style"
     t.string "theme"
-    t.string "similar_trip"
+    t.string "related_trips"
+    t.string "new_title"
+    t.text "summary"
+    t.text "highlight"
+    t.string "activity2"
+    t.string "go_next"
   end
 
   create_table "pg_search_documents", force: :cascade do |t|
