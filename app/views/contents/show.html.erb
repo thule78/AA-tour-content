@@ -7,7 +7,7 @@
           <%= @content.title %>
           <% end %>
         </h3>
-      <p><strong>Root: </strong><%= @content.country %>/<%= @content.destination %>/<%= @content.activity1 %></p>
+      <p><strong>Root: </strong><%= @content.country %> | <%= @content.destination %> | <%= @content.activity1 %></p>
       <p><strong>Source: </strong><%= @content.source %></p>
       <div class="content-tabs">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -20,9 +20,9 @@
         </ul>
         <div class="tab-content mt-4" id="myTabContent">
           <div class="tab-pane fade show active" id="original" role="tabpanel" aria-labelledby="original-tab">
-            <% if @content.summary.present? && @content.highlight.present? %>
+            <% if @content.summary.present? || @content.highlight.present? %>
             <p><strong>Summary:</strong> <%= @content.summary.html_safe %></p> <br />
-            p><strong>Highlight:</strong> <%= @content.highlight.html_safe %></p>
+            <p><strong>Highlight:</strong> <%= @content.highlight.html_safe %></p>
             <% else %>
             <p>Please add content</p>
             <% end %></div>
@@ -42,14 +42,14 @@
       <span>Note: <%= @content.note %></span>
       </div>
       <div class="mt-5">
-        <p><strong>Last updated: <%= @content.updated_at %></strong></p>
+        <p><strong>Updated: <%= @content.updated_at.strftime('%b %d %Y') %></strong></p>
         <p><span>Code: </span><%= @content.code %></p>
         <p><span>Provider: </span><%= @content.provider %></p>
-        <p><span>Start/Finish destination: </span><%= @content.start_finish %></p>
+        <p><span>Start/Finish: </span><%= @content.start_finish %></p>
         <p><span>Style: </span><%= @content.style %></p>
         <p><span>Theme: </span><%= @content.theme %></p>
         <p><span>Comfort: </span><%= @content.comfort %></p>
-        <p><span>Similar Trips: </span><%= @content.related_trips %></p>
+        <p><span>Related Trips: </span><%= @content.related_trips %></p>
         <p><span>Duration: </span><%= @content.length %></p>
       </div>
 
