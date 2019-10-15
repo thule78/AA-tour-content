@@ -1,21 +1,32 @@
 <div class="container my-5">
   <div class="wrapper">
     <div class="content-col col-md-8 col-12">
-      <h3 class="content-title"><%= @content.title %></h3>
-      <p><strong>Root: </strong><%= @content.country %>/<%= @content.destination %>/<%= @content.activity %></p>
+      <h3 class="content-title"><% if @content.new_title.present?%>
+        <%= @content.new_title %>
+          <% else %>
+          <%= @content.title %>
+          <% end %>
+        </h3>
+      <p><strong>Root: </strong><%= @content.country %>/<%= @content.destination %>/<%= @content.activity1 %></p>
       <p><strong>Source: </strong><%= @content.source %></p>
       <div class="content-tabs">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="nav-item">
-            <a class="nav-link active" id="original-tab" data-toggle="tab" href="#original" role="tab" aria-controls="original" aria-selected="true">Original Content</a>
+            <a class="nav-link active" id="original-tab" data-toggle="tab" href="#original" role="tab" aria-controls="original" aria-selected="true">Summary & Highlight</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="modifi-tab" data-toggle="tab" href="#modifi" role="tab" aria-controls="profile" aria-selected="false">Modifi Content</a>
+            <a class="nav-link" id="modifi-tab" data-toggle="tab" href="#modifi" role="tab" aria-controls="profile" aria-selected="false">Itinerary</a>
           </li>
         </ul>
         <div class="tab-content mt-4" id="myTabContent">
-          <div class="tab-pane fade show active" id="original" role="tabpanel" aria-labelledby="original-tab"><p><%= @content.content_original.html_safe %></p></div>
-          <div class="tab-pane fade" id="modifi" role="tabpanel" aria-labelledby="profile-tab"><p><%= @content.content_modifi %></p></div>
+          <div class="tab-pane fade show active" id="original" role="tabpanel" aria-labelledby="original-tab">
+            <% if @content.summary.present? && @content.highlight.present? %>
+            <p><strong>Summary:</strong> <%= @content.summary.html_safe %></p> <br />
+            p><strong>Highlight:</strong> <%= @content.highlight.html_safe %></p>
+            <% else %>
+            <p>Please add content</p>
+            <% end %></div>
+          <div class="tab-pane fade" id="modifi" role="tabpanel" aria-labelledby="profile-tab"><p><%= @content.itinerary.html_safe %></p></div>
         </div>
       </div>
     </div>
@@ -38,7 +49,7 @@
         <p><span>Style: </span><%= @content.style %></p>
         <p><span>Theme: </span><%= @content.theme %></p>
         <p><span>Comfort: </span><%= @content.comfort %></p>
-        <p><span>Similar Trips: </span><%= @content.similar_trip %></p>
+        <p><span>Similar Trips: </span><%= @content.related_trips %></p>
         <p><span>Duration: </span><%= @content.length %></p>
       </div>
 

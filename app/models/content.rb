@@ -11,4 +11,7 @@ class Content < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 end

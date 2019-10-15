@@ -9,7 +9,7 @@ class ContentsController < ApplicationController
   end
 
   def show
-    @content = Content.find(params[:id])
+    @content = Content.friendly.find(params[:id])
     authorize @content
   end
 

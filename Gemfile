@@ -18,6 +18,7 @@ gem 'webpacker'
 gem 'country_select', '~> 4.0'
 gem 'pg_search'
 gem 'pundit'
+gem 'friendly_id', '~> 5.2.4'
 #Trix WYSIWYG editor, make text bold, italic...
 gem 'trix'
 gem 'trix-rails'
