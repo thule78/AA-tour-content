@@ -41,7 +41,7 @@ class ContentsController < ApplicationController
   end
 
   def destroy
-    @content = Content.find(params[:id])
+    @content = Content.friendly.find(params[:id])
     authorize @content
     @content.destroy
     if @content.destroy
