@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-      <%= link_to "#", class: "navbar-brand" do %>
+      <%= link_to "www.itrekasia.com", class: "navbar-brand" do %>
       <%= image_tag "logo-small.png", style: 'width: 70px; height: 35px' %>
       <% end %>
     </li>
@@ -19,9 +19,7 @@
       <%= link_to "All Contents", contents_path, class: "btn btn-outline-secondary" %>
     </li>
     <li class="nav-item m-2">
-      <% if current_user.admin? %>
       <%= link_to "Add New Content", new_content_path, class: "btn btn-outline-secondary" %>
-      <%end%>
     </li>
     <li class="nav-item active m-2">
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-outline-info" %>
