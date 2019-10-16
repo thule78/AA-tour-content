@@ -22,7 +22,7 @@ class ContentsController < ApplicationController
     @content = Content.new(content_params)
     authorize @content
       if @content.save
-        redirect_to contents_path
+        redirect_to content_path(@content)
       else
         render :new
       end
