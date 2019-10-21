@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_15_090524) do
+ActiveRecord::Schema.define(version: 2019_10_21_050547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2019_10_15_090524) do
     t.string "activity2"
     t.string "go_next"
     t.string "slug"
+    t.boolean "editor"
     t.index ["slug"], name: "index_contents_on_slug", unique: true
   end
 
