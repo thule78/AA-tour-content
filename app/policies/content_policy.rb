@@ -13,7 +13,7 @@ class ContentPolicy < ApplicationPolicy
   end
 
   def edit?
-    user.admin? && user.editor?
+    user.admin? || user.editor?
   end
 
   def update?
