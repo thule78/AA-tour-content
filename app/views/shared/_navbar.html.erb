@@ -28,7 +28,7 @@
           <%if current_user.admin?%>
             <p class="m-3">Welcome Admin</p>
           <%else%>
-            <p class="m-3"> Welcome Editor</p>
+            <p class="m-3"> Welcome <%= current_user.email.first(5)%></p>
           <%end%>
         </li>
 
