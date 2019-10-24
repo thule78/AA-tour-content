@@ -33,9 +33,11 @@
   <div class="form-group col-md-4">
     <%= f.input :source, label:'source', :placeholder => 'John 2008', class: 'form-control'%>
   </div>
+  <% if @content.status == "Editting" && !current_user.editor? || current_user.admin? %>
   <div class="form-group col-md-4">
-    <%= f.input :status, label:'status', as: :select, :collection => ["Editting", "Approved" ,"Publish","Hidden"], class: 'form-control'%>
+    <%= f.input :status, label:'status', as: :select, :collection => ["Editting", "Proofreading" ,"Publish","Hidden"], class: 'form-control'%>
   </div>
+  <% end %>
 </div>
 <div class="form-group">
   <%= f.input :summary, label: 'Summary',label_html: { class: 'note' }, :as => :trix_editor, :input_html => {:rows => 10}, class: "form-control note" %>

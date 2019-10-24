@@ -36,9 +36,12 @@
       <% if policy(@content).destroy? %>
       <%= link_to 'Delete', @content_path, class: "btn btn-outline-danger col-4", method: "delete", data: { confirm: "Are you sure you want to delete '#{@content.title}'?" } %>
       <% end %>
-      <% if policy(@content).edit? %>
+
+      <% if current_user.editor? && @content.status == "Editting" ||
+        current_user.proofread? && @content.status == "Proofreading" || current_user.admin? %>
       <%= link_to 'Edit', edit_content_path, class: "btn btn-outline-warning col-4" %>
       <% end %>
+
       </div>
       <div class="flash flash-warning alert alert-dismissible fade  show" role="alert">
       <span>Note: <%= @content.note %></span>

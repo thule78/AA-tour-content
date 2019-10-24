@@ -36,8 +36,13 @@ class ContentsController < ApplicationController
   def update
     @content = Content.friendly.find(params[:id])
     authorize @content
-    @content.update(content_params)
-    redirect_to content_path(@content)
+    if current_user.editor? && @content.status == "Editting" ||
+        current_user.proofread? && @content.status == "Proofreading" || current_user.admin?
+      @content.update(content_params)
+      redirect_to content_path(@content)
+    else
+      flash[:alert] = "You don't have permission to edit"
+    end
   end
 
   def destroy
@@ -48,7 +53,7 @@ class ContentsController < ApplicationController
       flash[:notice] = "\"#{@content.title}\" was successfully deleted."
       redirect_to contents_path
     else
-      flash.now[:alert] = "There was an error deleting the content."
+      flash[:alert] = "There was an error deleting the content."
       render :show
     end
   end
