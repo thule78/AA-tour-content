@@ -9,7 +9,8 @@ class ContentPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    user.admin? || user.vt?
+
   end
 
   def edit?

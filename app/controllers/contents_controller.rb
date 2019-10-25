@@ -14,6 +14,7 @@ class ContentsController < ApplicationController
   end
 
   def new
+
     @content = Content.new
     authorize @content
   end
@@ -36,11 +37,12 @@ class ContentsController < ApplicationController
   def update
     @content = Content.friendly.find(params[:id])
     authorize @content
-    if current_user.editor? && @content.status == "Editting" ||
+    if  current_user.editor? && @content.status == "Editting" ||
         current_user.proofread? && @content.status == "Proofreading" || current_user.admin?
       @content.update(content_params)
       redirect_to content_path(@content)
     else
+      redirect_to content_path(@content)
       flash[:alert] = "You don't have permission to edit"
     end
   end
