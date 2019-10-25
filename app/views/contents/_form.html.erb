@@ -35,7 +35,7 @@
   </div>
   <% if @content.status == "Editting" && !current_user.editor? || current_user.admin? %>
   <div class="form-group col-md-4">
-    <%= f.input :status, label:'status', as: :select, :collection => ["Editting", "Proofreading" ,"Publish","Hidden"], class: 'form-control'%>
+    <%= f.input :status, label:'status', as: :select, :collection => ["Editting", "Proofreading" ,"Approving","Pulish"], class: 'form-control'%>
   </div>
   <% end %>
 </div>
