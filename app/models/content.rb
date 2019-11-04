@@ -1,5 +1,6 @@
 class Content < ApplicationRecord
   validates :title, presence: true
+  validates :status, presence: true
   validates :source, presence: true
   validates :itinerary, presence: true
   validates :country, presence: true
