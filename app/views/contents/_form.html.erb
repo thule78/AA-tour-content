@@ -33,10 +33,11 @@
   <div class="form-group col-md-4">
     <%= f.input :source, label:'source', :placeholder => 'John 2008', class: 'form-control'%>
   </div>
-
+  <% if current_user.admin? %>
   <div class="form-group col-md-4">
-    <%= f.input :status, label:'status', as: :select, :collection => ["Editting", "Proofreading" ,"Approving","Publish"], class: 'form-control'%>
+    <%= f.input :status, label:'status', as: :select, :collection => ["Editing", "Proofreading" ,"Approving","Publish"], selected: "Editing", class: 'form-control'%>
   </div>
+  <% end %>
 
 </div>
 <div class="form-group">
