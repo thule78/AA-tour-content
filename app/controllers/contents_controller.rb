@@ -37,7 +37,7 @@ class ContentsController < ApplicationController
   def update
     @content = Content.friendly.find(params[:id])
     authorize @content
-    if  current_user.editor? && @content.status == "Editting" ||
+    if  current_user.editor? && @content.status == "Editing" ||
         current_user.proofread? && @content.status == "Proofreading" || current_user.admin?
       @content.update(content_params)
       redirect_to content_path(@content)
