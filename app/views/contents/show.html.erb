@@ -37,7 +37,7 @@
       <%= link_to 'Delete', @content_path, class: "btn btn-outline-danger col-4", method: "delete", data: { confirm: "Are you sure you want to delete '#{@content.title}'?" } %>
       <% end %>
 
-      <% if current_user.editor? && @content.status == "Editting" ||
+      <% if current_user.editor? && @content.status == "Editing" ||
         current_user.proofread? && @content.status == "Proofreading" || current_user.admin? %>
       <%= link_to 'Edit', edit_content_path, class: "btn btn-outline-warning col-4" %>
       <% end %>
